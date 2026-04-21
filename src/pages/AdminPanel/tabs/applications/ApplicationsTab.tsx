@@ -49,7 +49,7 @@ export default function ApplicationsTab() {
       setCurrentFilter(false)
     } else {
       setApplications(applications)
-      setCurrentFilter(null)
+      setCurrentFilter(false)
     }
   }
 
