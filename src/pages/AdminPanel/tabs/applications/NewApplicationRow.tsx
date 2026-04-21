@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ApplicationSchema, type Application } from '../../../../shared/validators/application.schema'
 import { useAuth } from '../../../../shared/AuthContext/useAuth'
 
@@ -18,6 +18,13 @@ export function NewApplicationRow({ onSave, onCancel }: Props) {
         creator: user
     })
     const [data, setData] = useState<Application>(createEmptyApplication())
+
+    useEffect(() => {
+        if (user) {
+            setData(prev => ({ ...prev, creator: user }))
+        }
+    }, [user])
+
     const handleSave = () => {
         data.creator = user;
         const result = ApplicationSchema.safeParse(data)
