@@ -7,18 +7,17 @@ type Props = {
     onCancel: () => void
 }
 
-const createEmptyApplication = (): Application => ({
-    title: '',
-    description: '',
-    status: 'new',
-    creator: null
-})
-
 export function NewApplicationRow({ onSave, onCancel }: Props) {
     const { user } = useAuth()
-    const [data, setData] = useState<Application>(createEmptyApplication())
-    const [errors, setErrors] = useState<Record<string, string>>({})
 
+    const [errors, setErrors] = useState<Record<string, string>>({})
+    const createEmptyApplication = (): Application => ({
+        title: '',
+        description: '',
+        status: 'new',
+        creator: user
+    })
+    const [data, setData] = useState<Application>(createEmptyApplication())
     const handleSave = () => {
         data.creator = user;
         const result = ApplicationSchema.safeParse(data)
