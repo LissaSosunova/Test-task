@@ -1,0 +1,47 @@
+body {
+    --primary-color: white;
+    --primary-color-text: #1D1B20;
+    --primary-color-text-hovered: #1d1b20e0;
+    --secondary-color: #C3E956;
+    --secondary-color-dark: #1F4B2C;
+    --input--border: #79747E;
+    --input--border-focus: #1F4B2C;
+    --info-block-bg: #E7EBE5;
+    --filter-button: rgba(245, 239, 247, 1);
+    --filter-button-focus: rgba(31, 75, 44, 0.2);
+
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
+      180deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+      90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --gutter: 0.438rem;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-family: 'Inter';
+  }
+  h2 {
+    font-size: 16px;
+    font-family: 'Inter';
+  }
+  h3, h4, h5 {
+    margin: 12px 0px;
+  }

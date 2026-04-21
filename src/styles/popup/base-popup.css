@@ -1,0 +1,42 @@
+/* index.css или modal.css */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 24px;
+  width: 320px;
+  border-radius: 8px;
+}
+
+.modal h2 {
+  color: var(--primary-color-text);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error {
+  color: red;
+}
+
+.error-form {
+  margin: 2px;
+  font-size: 12px;
+}
+
+.error-td {
+  height: 15px;
+  min-height: 15px;
+}
+.input-td {
+  margin-top: 25px;
+}

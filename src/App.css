@@ -1,0 +1,73 @@
+/* Primeflex library
+Grid system https://primeflex.org/gridsystem
+Width  https://primeflex.org/width
+
+Class	Description
+sm:	small screens e.g. phones
+md:	medium screens e.g. tablets
+lg:	large screens e.g. notebooks
+xl:	larger screens e.g monitors
+ */
+@import 'styles/primeflex/primeflex.css';
+@import 'styles/variables/base.css';
+@import 'styles/containers/base.css';
+@import 'styles/buttons/base.css';
+@import 'styles/forms//base.css';
+@import 'styles/navbar/custom.css';
+@import 'styles/popup/base-popup.css';
+@import 'styles/elements/base.css';
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0px !important;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: var(--primary-color) !important;
+  overflow-x: hidden;
+}
+
+#root {
+  background-color: var(--primary-color) !important;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 570px) {
+  #root {
+    padding: 0.2rem;
+  }
+
+  .header {
+    padding: 5px !important;
+  }
+
+  .admin-pannel,
+  .tab-content {
+    width: unset !important;
+    overflow: auto;
+  }
+}
+
+main {
+  overflow: auto !important;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

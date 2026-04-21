@@ -1,0 +1,22 @@
+.spinner-15 {
+    width: 15px;
+    height: 16px;
+    margin: 0px 5px 0px 0px !important;
+    -webkit-animation: rotating 4s linear infinite;
+    -moz-animation: rotating 4s linear infinite;
+    -ms-animation: rotating 4s linear infinite;
+    -o-animation: rotating 4s linear infinite;
+     animation: spin 2s linear infinite; /* Apply the animation */
+}
+.spinner-15 img {
+    max-width: 15px;
+    max-height: 15px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start at 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* End at 360 degrees (a full turn) */
+  }
+}
