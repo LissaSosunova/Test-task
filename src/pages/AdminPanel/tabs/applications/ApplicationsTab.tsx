@@ -42,7 +42,7 @@ export default function ApplicationsTab() {
     };
   }, []);
 
-  const handleSetFilterClick = (value?: string) => {
+  const handleSetFilterClick = (value?: string | null) => {
     if (value) {
       const data = applications.filter(a => a.status === value)
       setApplications(data)
@@ -80,7 +80,7 @@ export default function ApplicationsTab() {
                 {isOpenFilter && (
                   <div className="admin-table--filter-options" ref={dropdownRef}>
                     <ul>
-                      <li className="filter-btn-li" onClick={() => handleSetFilterClick()}>Reset filter</li>
+                      <li className="filter-btn-li" onClick={() => handleSetFilterClick(null)}>Reset filter</li>
                       <li className="filter-btn-li" onClick={() => handleSetFilterClick('new')}>New</li>
                       <li className="filter-btn-li" onClick={() => handleSetFilterClick('in_progress')}>In progress</li>
                       <li className="filter-btn-li" onClick={() => handleSetFilterClick('done')}>Done</li>

@@ -1,13 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { useForm, useFieldArray } from 'react-hook-form'
-import { type User } from '../../../../shared/interfaces/User'
 import { UserRowItem } from './UserRowItem'
-
-
-type FormData = {
-    users: User[]
-}
 
 export default function UsersTab() {
     const [loading, setLoading] = useState(true)

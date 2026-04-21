@@ -27,7 +27,7 @@ export function ApplicationRowItem({ application, user }: Props) {
     const availableStatuses = getAvailableStatuses(application.status)
 
     const handleStatusChange = (value: Application['status']) => {
-        // защита от ручного взлома (например через devtools)
+
         if (!availableStatuses.includes(value)) {
             showToast.error('Invalid status transition')
             return
@@ -80,7 +80,7 @@ export function ApplicationRowItem({ application, user }: Props) {
                 {user?.role === 'manager' && (
                     <button
                         className="btn-medium primary-btn"
-                        onClick={() => deleteApplication(application.id)}
+                        onClick={() => deleteApplication(application.id as string)}
                     >
                         Delete
                     </button>
