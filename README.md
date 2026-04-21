@@ -1,13 +1,9 @@
-# React + TypeScript + Vite
+# Test task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is test task by description%
+https://docs.google.com/document/d/1XBwokh-hvsppQTAj7450YnKNW_C0284yEdNj8vrSlWA/edit?tab=t.0
 
-Currently, two official plugins are available:
+## STACK
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React + TypeScript + Vite
 

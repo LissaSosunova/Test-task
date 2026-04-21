@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { type Application } from '../../../../shared/interfaces/application'
 import { ApplicationRowItem } from './ApplicationRowItem'
 import { useDictionaries } from '../../../../hooks/useDictionaries'
@@ -11,7 +11,7 @@ export default function ApplicationsTab() {
   const { user } = useAuth()
   const [creating, setCreating] = useState(false)
   const [currentApplications, setApplications] = useState<Application[]>([])
-  const [currentFilter, setCurrentFilter] = useState<string | null>(null)
+  const [isOpenFilter, setCurrentFilter] = useState(false)
 
   const handleCreate = (data: Application) => {
     const randomNum = Math.floor(Math.random() * 100000001)
@@ -21,12 +21,32 @@ export default function ApplicationsTab() {
     })
     setCreating(false)
   }
+  useEffect(() => {
+    setApplications(applications)
+  }, [applications])
 
-    const handleSetFilterClick = (value?: string) => {
+  const toggleFilter = () => {
+    setCurrentFilter(!isOpenFilter)
+  };
+  // Handle clicks outside the dropdown
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current?.contains(event.target as Node)) {
+        setCurrentFilter(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleSetFilterClick = (value?: string) => {
     if (value) {
       const data = applications.filter(a => a.status === value)
       setApplications(data)
-      setCurrentFilter(value)
+      setCurrentFilter(false)
     } else {
       setApplications(applications)
       setCurrentFilter(null)
@@ -53,7 +73,23 @@ export default function ApplicationsTab() {
             )}
             <th>Title</th>
             <th>Description</th>
-            <th>Status</th>
+            <th>
+              <div className="admin-table--td-filter">
+                Status
+                <div className="btn-filter" onClick={() => toggleFilter()}></div>
+                {isOpenFilter && (
+                  <div className="admin-table--filter-options" ref={dropdownRef}>
+                    <ul>
+                      <li className="filter-btn-li" onClick={() => handleSetFilterClick()}>Reset filter</li>
+                      <li className="filter-btn-li" onClick={() => handleSetFilterClick('new')}>New</li>
+                      <li className="filter-btn-li" onClick={() => handleSetFilterClick('in_progress')}>In progress</li>
+                      <li className="filter-btn-li" onClick={() => handleSetFilterClick('done')}>Done</li>
+                    </ul>
+                  </div>
+                )}
+
+              </div>
+            </th>
             {user?.role === 'manager' && (
               <th>Creator</th>
             )}
@@ -69,7 +105,7 @@ export default function ApplicationsTab() {
             />
           )}
 
-          {applications.map((application, index) => (
+          {currentApplications.map((application, index) => (
             <ApplicationRowItem
               key={application.id}
               index={index}

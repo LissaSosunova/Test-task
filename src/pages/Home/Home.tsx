@@ -8,7 +8,8 @@ export default function Home() {
                     </div>
                     <div className="col-10 md:col-12 flex flex-row align-items-center justify-content-center">
                         <p className="text-center">About:
-                          <br />  Here is about
+                          <br />  This is a test task created to pass the selection for the position Junior React Developer
+                          <br /> Click "Login" on top bar, you can create any User, choose Role (this is nessesery) 
                         </p>
                     </div>
                 </div>

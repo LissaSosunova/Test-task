@@ -148,20 +148,17 @@
     justify-content: center;
 }
 
-.admin-table,
-.types-table {
+.admin-table {
     border-collapse: collapse;
 }
 
-.admin-table thead,
-.types-table thead {
+.admin-table thead {
     background: var(--primary-color-text);
     color: var(--primary-color);
     border-collapse: collapse;
 }
 
-.admin-table td,
-.types-table td {
+.admin-table td {
     border: 1px solid black;
     text-align: left;
     padding: 4px 8px;
@@ -174,22 +171,8 @@
     text-align: center;
 }
 
-.types-table td:last-child,
-.types-table thead tr th:last-child {
-    max-width: 110px;
-    width: 110px;
-    text-align: center;
-}
 
-.types-table td:first-child,
-.types-table thead tr th:first-child {
-    max-width: 170px;
-    width: 170px;
-    text-align: center;
-}
-
-.admin-table thead tr th,
-.types-table thead tr th {
+.admin-table thead tr th {
     padding: 8px;
 }
 
@@ -197,4 +180,40 @@
     max-width: 22px;
     width: 22px;
     margin: auto;
+}
+
+.admin-table--td-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.admin-table--filter-options {
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    background-color: rgb(195 232 86);
+    color: black;
+    width: auto;
+    padding: 2px 12px;
+    font-size: 12px;
+    border: 1px solid black;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.admin-table--filter-options .filter-btn {
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.filter-btn-li {
+    
+    padding: 3px 0px;
+    &:hover {
+        cursor: pointer;
+    }
 }
