@@ -9,7 +9,6 @@ export default function AuthGuard({ children }: Props) {
   const isAuthenticated = Boolean(localStorage.getItem('user'))
 
   if (!isAuthenticated) {
-    console.log('isAuthenticated', isAuthenticated)
     return <Navigate to="/" replace />
   }
 
