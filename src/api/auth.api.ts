@@ -35,7 +35,7 @@ export const AuthAPI = {
     if (!users.length || users.every((u: any) => u.name !== data.name)) {
       const resp = { 
         name: data.name, 
-        password: data.password, 
+        password: data.password,
         error: 'User not found'
       }
       console.log('User not found', resp)
