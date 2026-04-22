@@ -21,9 +21,6 @@ export default function ApplicationsTab() {
     })
     setCreating(false)
   }
-  useEffect(() => {
-    setApplications(applications)
-  }, [applications])
 
   const toggleFilter = () => {
     setCurrentFilter(!isOpenFilter)
@@ -42,13 +39,29 @@ export default function ApplicationsTab() {
     };
   }, []);
 
-  const handleSetFilterClick = (value?: string | null) => {
-    if (value) {
-      const data = applications.filter(a => a.status === value)
-      setApplications(data)
-      setCurrentFilter(false)
+  useEffect(() => {
+    if (user && user.role === 'user') {
+      const userApplications = applications.filter(a => a.creator?.id === user.id)
+      setApplications(userApplications)
     } else {
       setApplications(applications)
+    }
+  }, [applications, user])
+
+  const handleSetFilterClick = (value?: string | null) => {
+    let data = []
+    if (user && user.role === 'user') {
+      data = applications.filter(a => a.creator?.id === user.id)
+    } else {
+      data = [...applications]
+    }
+
+    if (value) {
+      const filtered = data.filter(a => a.status === value)
+      setApplications(filtered)
+      setCurrentFilter(false)
+    } else {
+      setApplications(data)
       setCurrentFilter(false)
     }
   }
@@ -100,7 +113,7 @@ export default function ApplicationsTab() {
         <tbody>
           {creating && (
             <NewApplicationRow
-              onSave={handleCreate}
+              onSave = {(data) => handleCreate(data as Application)}
               onCancel={() => setCreating(false)}
             />
           )}

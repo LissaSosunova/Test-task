@@ -48,9 +48,9 @@ export function NewApplicationRow({ onSave, onCancel }: Props) {
 
     return (
         <tr>
-            <td>
-                
-            </td>
+            {user?.role === 'manager' && (
+                <td></td>
+            )}
             <td>
                 <div className="mb-3 input-set w-full md:min-w-full col input-td">
                     <label className="form-label form-label1">Title</label>

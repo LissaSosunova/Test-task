@@ -4,5 +4,5 @@ export interface Application {
     title: string
     description: string
     status: 'new' | 'in_progress' | 'done'
-    creator?: User | null
+    creator?: User
 }
