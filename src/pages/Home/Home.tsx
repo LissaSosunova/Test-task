@@ -10,6 +10,9 @@ export default function Home() {
                         <p className="text-center">About:
                           <br />  This is a test task created to pass the selection for the position Junior React Developer
                           <br /> Click "Login" on top bar, you can create any User, choose Role (this is nessesery) 
+                          <br />
+                          <br />Registration and re-entry are available, the role is determined at the time of registration, validation of fields (zod schemes), error handling (during login, registration and creating applications)
+                          <br /> Additionally, for the manager role, there are tabs for viewing applications, changing status, as well as a tab with a list of registered users in the system.
                         </p>
                     </div>
                 </div>
